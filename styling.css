@@ -1,0 +1,143 @@
+/*
+    Use custom properties (CSS Variables) to define often used values
+    By convention these go in the :root pseudoselector, but can be defined anywhere.
+*/
+:root {
+    --palette-lightest: #EEEDE7;
+    --palette-light: #E7D2CC;
+    --palette-dark: #B9B7BD;
+    --palette-darkest: #868B8E;
+    --white: #f6fdfd;
+    --black: #09090a;
+}
+
+/*
+    CSS style convention places tag selectors first, then class selectors, then id selectors.
+    html and body are valid tag selectors and essentially select the entire document.
+*/
+html {
+  font-family: "Gill Sans", sans-serif;
+  color: var(--black);
+  background-color: var(--palette-lightest);
+ }
+
+ body {
+  /* Measurements can be static (px) or responsive (vw, vh, em, rem, %) */
+  margin: 0;
+  padding: 0;
+ }
+
+ img {
+     height: 200px;
+     border: 2px solid var(--palette-light);
+     border-radius: 5px;
+     transition: .5s;
+ }
+
+ /*
+    We can also select multiple selectors at once
+ */
+ table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: .25rem;
+  }
+
+ /*
+    We can use the :hover pseudoselector to define behavior when an element is hovered on
+ */
+ img:hover {
+     cursor: pointer;
+ }
+
+ /*
+    We can also select tags with specific attribute settings
+ */
+ input[type=button] {
+    border: 0;
+    border-radius: 15px;
+    padding: .25rem .5rem;
+    background-color: var(--palette-lightest);
+    color: var(--black);
+}
+
+input[type=button]:hover {
+    cursor: pointer;
+    background-color: var(--palette-darkest);
+    color: var(--palette-lightest);
+}
+
+input[type=text] {
+    border: 0;
+    height: 1.4rem;
+    border-radius: 5px;
+    background-color: var(--palette-lightest);
+}
+
+/*
+    We select classes by using the . prefix
+*/
+ .expanded {
+     height: 300px;
+     transition: .5s;
+ }
+
+ .guitarist {
+  display: inline-block;
+  text-align: center;
+  transition: .5s;
+ }
+
+ .centered {
+  text-align: center;
+ }
+
+ .sprite {
+     height: 7rem;
+     border: solid 2px var(--palette-lightest);
+     border-radius: 100%;
+ }
+
+ .type {
+     border: solid 2px var(--black);
+     border-radius: 15px;
+     padding: 0 .5rem;
+ }
+
+ #info-section {
+  padding: 0 20%;
+ }
+
+ /*
+    We select id's by using the # prefix
+ */
+ #guitarist-section {
+  background-color: var(--palette-darkest);
+  color: var(--palette-lightest);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 10% 10%;
+ }
+
+ #api-section {
+     background-color: var(--palette-light);
+     padding: 2rem 20%;
+     text-align: center;
+ }
+
+ #result-content {
+     max-width: 40%;
+     margin: 1rem auto;
+     padding: 1rem;
+     border: 2px solid var(--palette-darkest);
+     border-radius: 5px;
+ }
+
+ #result-text {
+     margin: 0;
+ }
+
+ #result-data {
+     display: flex;
+     justify-content: space-evenly;
+ }

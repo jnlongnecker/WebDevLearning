@@ -1,0 +1,144 @@
+<!-- DOCTYPE html is a requried tag in HTML 5 -->
+<!DOCTYPE html>
+
+<!-- Always include the language so browsers know what language the page is in -->
+<html lang="en">
+
+<!-- The head is used to specify metadata, or data about the page -->
+
+<head>
+
+    <!-- Title is a required tag in HTML 5 -->
+    <title>Intro to WebDev</title>
+    <meta name="keywords" content="Intro, Introduction, Web, Developer, WebDev, HTML, CSS, JavaScript, JS" />
+    <meta name="description" content="An introduction to basic WebDev technologies." />
+    <meta name="revised" content="Revature, 8/30/2021" />
+    <meta name="author" content="Jared Longnecker" />
+
+    <link rel="stylesheet" href="styling.css" />
+    <!--
+    <script src="controller.js"></script>
+    <!--
+        Other tags that go in the head:
+        <base> : Specifies a default URL and target for all page links
+        <noscript> : Defines alternate content that displays if JavaScript is not supported
+    -->
+</head>
+
+<!-- The body is used for tags that should be rendered. Note that tags will still render if placed in the head -->
+
+<body>
+
+    <!-- Header tags are block elements. This means they take up their entire container width and add a line break -->
+    <h1 class="centered">Welcome to my Page!</h1>
+    <h3 class="centered">Here is some information about me</h3>
+
+    <!-- section tags are used to define large partitions of the document -->
+    <section id="info-section">
+
+        <!-- a (anchor) are inline elements. This means they only take up as much space as what they contain -->
+        <a href="https://www.google.com/">But first, a link to Google</a>
+        <p>This is a table of my favorite books and their authors:</p>
+
+        <!-- table, tr, th and td tags define a table -->
+        <table>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+            </tr>
+            <tr>
+                <td>Redwall</td>
+                <td>Brian Jacques</td>
+            </tr>
+            <tr>
+                <td>The Odyssy</td>
+                <td>Homer</td>
+            </tr>
+            <tr>
+                <td>Tunnels</td>
+                <td>Gordon & Williams</td>
+            </tr>
+            <tr>
+                <td>So You Want To Be A Wizard</td>
+                <td>Diane Duane</td>
+            </tr>
+        </table>
+        <p>These are my hobbies:</p>
+
+        <!-- ul is unordered list. List items have no specific order -->
+        <ul>
+            <li>Coding Projects</li>
+            <li>Writing/Playing Music</li>
+            <li>Learning New Things</li>
+            <li>D&D With Friends</li>
+        </ul>
+
+        <p>My top 5 favorite guitarists are:</p>
+
+        <!-- ol is ordered list. List items have a defined order -->
+        <ol>
+            <li>Mark Morton</li>
+            <li>David Gilmour</li>
+            <li>Tom Morello</li>
+            <li>Yvette Young</li>
+            <li>Mikael Åkerfeldt</li>
+        </ol>
+        <p>And here they are in all their glory:</p>
+    </section>
+
+    <section id="guitarist-section">
+
+        <!-- div's are also block elements. They are used as a container -->
+        <div class="guitarist">
+            <p>Mark Morton</p>
+
+            <!-- img's are inline-block elements. This means they can take up a width and height, but add no line break -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/2015_RiP_Lamb_of_God_-_Mark_Morton_by_2eight_-_DSC5322.jpg"
+                alt="Mark Morton rocking a pink guitar" height="200px" />
+        </div>
+
+        <div class="guitarist">
+            <p>David Gilmour</p>
+            <img src="https://m.media-amazon.com/images/M/MV5BODdhY2ZjY2UtYjY0NC00NTAxLWIwYzEtN2Y1ZjEyMWQ2MDJhXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg"
+                alt="David Gilmour and his signature black Fender Stratocaster" height="200px" />
+        </div>
+
+        <div class="guitarist">
+            <p>Tom Morello</p>
+            <img src="https://pbs.twimg.com/profile_images/1022525495148204032/o2eHtiCU.jpg"
+                alt="Tom Morello and a beaten up pink Gibson Les Paul" height="200px" />
+        </div>
+
+        <div class="guitarist">
+            <p>Yvette Young</p>
+            <img src="https://images.squarespace-cdn.com/content/v1/5b33f5a496e76f900aeebcbb/1530132794805-U012B9CMEDBG0DRJH8TC/yvetdetroit.png"
+                alt="Yvette Young on a light blue Fender Telecaster" height="200px" />
+        </div>
+
+        <div class="guitarist">
+            <p>Mikael Åkerfeldt</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/14-06-08_RiP_Opeth_Mikael_%C3%85kerfeldt_1.JPG"
+                alt="Mikael Åkerfeldt singing and playing a burnt orange guitar with a Floyd Rose" height="200px" />
+        </div>
+    </section>
+
+    <section id="api-section">
+        <div id="result-content">
+            <h3 id="result-text">Result Text</h3>
+
+            <hr />
+
+            <div id="result-image"></div>
+
+            <div id="result-data">
+                <span class="type">Something</span>
+                <span class="type">Something</span>
+            </div>
+        </div>
+        <label for="searchInput">Input: </label>
+        <input type="text" name="searchInput" />
+        <input type="button" id="btn" value="Search!" />
+    </section>
+</body>
+
+</html>
