@@ -123,6 +123,29 @@ function makeRequest() {
         }
     };
 
+    /*
+        HTTP Methods:
+        - GET*
+        - POST
+        - PATCH
+        - DELETE*
+        - PUT*
+        * = Idempotent
+
+        HTTP Status Codes
+        - 100-199: Informational
+        - 200-299: Success
+        - 300-399: Redirects
+        - 400-499: Client Error
+        - 500-599: Server Error
+
+        XML Ready State Codes
+        - 0: Unsent
+        - 1: Opened
+        - 2: Headers_Received
+        - 3: Loading
+        - 4: Complete
+    */
     // Open the request: Method, URL, isAsynchronous
     ajaxRequest.open("GET", "https://pokeapi.co/api/v2/pokemon/" + searchQuery, true);
     ajaxRequest.send();
