@@ -1,0 +1,14 @@
+<apex:page controller="WizardController" lightningStylesheets="true">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+            	<apex:commandLink action="{!PrevPage}" value="Go Back!" /><span> or </span>
+                <apex:outputLink value="http://google.com/search" >CHAOS
+                	<apex:param name="q" value="{!name}" />
+                </apex:outputLink>
+            </apex:pageBlockButtons>
+            <apex:outputText >And like magic, I've synthesized up a magical creation for you, {!name}!</apex:outputText><br />
+            <apex:outputText >Your most sacred number is {!specialNumber}, and I even know that you enjoy the text "{!specialText}"!</apex:outputText>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,23 @@
+<apex:page controller="WizardController">
+    <apex:slds />
+    
+    <apex:form >
+        
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandLink action="{!NextPage}" value="Next Page" />
+            </apex:pageBlockButtons>
+            
+            <apex:outputText value="Your Name: " />
+            <apex:inputText value="{!name}" />
+            
+            <apex:outputText value="Your Special Number: " />
+            <apex:inputText value="{!specialNumber}" />
+            
+            <apex:outputText value="Your Special Text: " />
+            <apex:inputText value="{!specialText}" />
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>
