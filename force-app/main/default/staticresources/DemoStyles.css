@@ -1,0 +1,6 @@
+[id*=logo] {
+    border-radius: 50%;
+    height: 100px;
+    display: block;
+    margin: 1rem auto;
+}
