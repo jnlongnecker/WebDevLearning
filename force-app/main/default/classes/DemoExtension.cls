@@ -1,5 +1,5 @@
 public with sharing class DemoExtension {
-    
+
     public Account myAccount {get; set;}
     
     transient public String primValue {
@@ -71,8 +71,7 @@ public with sharing class DemoExtension {
                 }
         return randomValues[Integer.valueOf(Math.random() * randomValues.size())];
     }
-    
-    
+
     private class Wrap {
         public Integer contactNumber {get; set;}
         public Contact wrappedContact {get; set;}
