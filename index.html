@@ -121,22 +121,64 @@
         </div>
     </section>
 
-    <section id="api-section">
-        <div id="result-content">
-            <h3 id="result-text">Result Text</h3>
+    <!--
+        Let's introduce the concept of accessibility:
+        All websites should be accessible to everyone, regardless of disabilities. Otherwise, you are creating barriers
+        for people who otherwise would be interested in your website. To overcome this, there are many technologies
+        that allow for everyone to access the web. We as developers need only to design for those technologies.
+        How do we do that? Well, we'll go over some of the important ones:
 
-            <hr />
+        -- Semantic Markup --
+        Semantic markup is simply using markup in places where it makes sense. Each tag has a meaning, we need only to
+        use the tag in the proper context. For example, I could have a list of items in 4 different <p> tags, wrapped
+        in a div. However, this has no semantic meaning. On the other hand, an <ul> with <li> has the semantic meaning of
+        a list of items in no order.
 
-            <div id="result-image"></div>
+        -- Aria --
+        Accessible Rich Internet Applications (ARIA) is a standard developed by the Web Accessibility Initiative (WAI)
+        in order to create, you guessed it, accessible web applications. Aria describes ways of adding attributes for
+        accessibility purposes as well as for navigation for users without the ability to accurately move a mouse.
+        Now, what the heck does this really mean? Well, Aria fills in the gaps where semantic markup simply isn't
+        enough. If there isn't proper semantic markup to describe what an element is doing, we can use special
+        Aria attributes to describe these functions.
+        Link to valid Aria roles and other attributes: https://w3c.github.io/using-aria/#aria-roles
 
-            <div id="result-data">
-                <span class="type">Something</span>
-                <span class="type">Something</span>
-            </div>
-        </div>
-        <label for="searchInput">Input: </label>
-        <input type="text" name="searchInput" />
-        <input type="button" id="btn" value="Search!" />
+        -- Tab Order --
+        Interactive elements (<a>, <input>, <button>, etc) are described as "tabable", meaning that the user can simply
+        press the tab key in order to jump to the next tab point. The order that is set for the elements is the order
+        that they appear in the HTML document; that is, elements on a lower line number are tabbed to first. You must
+        construct your document to reflect the proper order desired and should not alter this order. In fact, LWC goes
+        as far as disabling our option to restructure the Tab Order: the tabindex attribute. We can only assign 2
+        tabindex values: 0 and -1. 0 places an otherwise untabbable element in the tab order. -1 removes an element
+        from the tab order.
+
+        -- Aria and JavaScript --
+        We can manipulate the state of all attributes by using the setAttribute("attribute-name", "newValue") function
+        on the element that we wish to change the attribute for. Certain aria values should be manipulated via
+        JavaScript to reflect details about the element that would be impossible to tell to those with certain disabilities.
+    -->
+
+    <!-- 
+        While normal sections of a webpage are by and large covered with semantic markup, interactable elements must
+        be crafted with extra care in order to accomodate all peoples.
+    -->
+    <section id="input-section">
+        <form>
+            <!-- Use aria-label and aria-labelledby to describe the purpose of the inputs -->
+            <label id="blue-label" for="add-blue">Add Blue</label>
+            <input aria-labelledby="blue-label" id="add-blue" type="checkbox" checked="true" aria-checked="true" />
+            <input id="blue-channel" aria-label="blue-amount" type="range" min="0" max="255" />
+
+            <label id="red-label" for="add-red">Add Red</label>
+            <input aria-labelledby="red-label" id="add-red" type="checkbox" checked="true" aria-checked="true" />
+            <input id="red-channel" aria-label="red-amount" type="range" min="0" max="255" />
+
+            <label id="green-label" for="add-green">Add Green</label>
+            <input aria-labelledby="green-label" id="add-green" type="checkbox" checked="true" aria-checked="true" />
+            <input id="green-channel" aria-label="green-amount" type="range" min="0" max="255" />
+
+            <div aria-label="Output color from all input channels" id="output-color"></div>
+        </form>
     </section>
 </body>
 

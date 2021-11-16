@@ -77,15 +77,24 @@ function intro() {
 
 }
 
+let sliding = false;
+
 // We can specify event listeners to call code when events are triggered
 window.onload = () => {
     let images = document.querySelectorAll("img");
+    let toggles = document.querySelectorAll("input[type=checkbox]");
+    let sliders = document.querySelectorAll("input[type=range]");
     for (let image of images) {
         image.addEventListener("click", imageClicked);
     }
-    let apiBtn = document.querySelector("#btn");
-    apiBtn.addEventListener("click", makeRequest);
-    window.addEventListener("keydown", submitInput);
+    for (let toggle of toggles) {
+        toggle.addEventListener("click", toggleFlipped);
+    }
+    for (let slider of sliders) {
+        slider.addEventListener("mousedown", event => { sliding = true; sliderAdjusted(); })
+        slider.addEventListener("mouseup", event => { sliding = false })
+        slider.addEventListener("mousemove", sliderAdjusted);
+    }
 }
 
 // Best practices when manipulating element styles is to only manipulate their classes
@@ -102,80 +111,129 @@ function imageClicked(event) {
     }
 }
 
-function submitInput(event) {
-    if (event.code !== "Enter") return;
-    makeRequest();
-}
-
-function makeRequest() {
-    let input = document.querySelector("input[type=text]");
-    let searchQuery = input.value.toLowerCase();
-    if (!input.value) return;
-
-    input.value = "";
-
-    let ajaxRequest = new XMLHttpRequest();
-    ajaxRequest.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let response = this.responseText;
-            response = JSON.parse(response);
-            populate(response);
-        }
-    };
-
-    /*
-        HTTP Methods:
-        - GET*
-        - POST
-        - PATCH
-        - DELETE*
-        - PUT*
-        * = Idempotent
-
-        HTTP Status Codes
-        - 100-199: Informational
-        - 200-299: Success
-        - 300-399: Redirects
-        - 400-499: Client Error
-        - 500-599: Server Error
-
-        XML Ready State Codes
-        - 0: Unsent
-        - 1: Opened
-        - 2: Headers_Received
-        - 3: Loading
-        - 4: Complete
-    */
-    // Open the request: Method, URL, isAsynchronous
-    ajaxRequest.open("GET", "https://pokeapi.co/api/v2/pokemon/" + searchQuery, true);
-    ajaxRequest.send();
-}
-
-function populate(requestData) {
-    let pkmName = requestData["name"];
-    let typeData = requestData["types"];
-    let allTypes = [];
-    let spriteURL = requestData["sprites"]["front_default"];
-    let spriteContainer = document.querySelector("#result-image");
-    let typeContainer = document.querySelector("#result-data");
-    let typeHTML = "";
-
-    pkmName = capitalize(pkmName);
-
-    for (let d of typeData) {
-        allTypes.push(d["type"]["name"]);
+function toggleFlipped(event) {
+    let toggle = event.target;
+    let inputChannel;
+    switch (toggle.getAttribute("id")) {
+        case "add-green":
+            inputChannel = document.querySelector("#green-channel");
+            break;
+        case "add-blue":
+            inputChannel = document.querySelector("#blue-channel");
+            break;
+        case "add-red":
+            inputChannel = document.querySelector("#red-channel");
+            break;
     }
 
-    spriteContainer.innerHTML = "<img class=\"sprite\" src=\"" + spriteURL + "\" alt=\"" + pkmName + " Front Sprite\" />";
-    document.querySelector("#result-text").innerHTML = pkmName;
+    // A much easier way to turn a class "on" or "off" is to use the toggle function
+    inputChannel.classList.toggle("hide");
 
-    for (let type of allTypes) {
-        typeHTML += "<span class=\"type\">" + capitalize(type) + "</span>";
-    }
-    typeContainer.innerHTML = typeHTML;
+    // Be sure to not only fulfill the functionality, but also update the aria attributes for accessiblity
+    inputChannel.setAttribute("aria-hidden", toggle.getAttribute("checked"));
+    toggle.setAttribute("aria-checked", toggle.getAttribute("checked"));
 }
 
-function capitalize(inputString) {
-    let char1 = inputString[0].toUpperCase();
-    return char1 + inputString.substring(1).toLowerCase();
+function sliderAdjusted(event) {
+    if (!sliding) return;
+
+    let redInput = document.querySelector("#red-channel");
+    let blueInput = document.querySelector("#blue-channel");
+    let greenInput = document.querySelector("#green-channel");
+
+    // The below syntax is an inline if statement
+    let redAmount = redInput.classList.contains("hide") ? 0 : redInput.value;
+    let blueAmount = blueInput.classList.contains("hide") ? 0 : blueInput.value;
+    let greenAmount = greenInput.classList.contains("hide") ? 0 : greenInput.value;
+
+    let newStyle = `rgb(${redAmount},${greenAmount},${blueAmount})`;
+
+    // With this specific example, manipulating classes isn't possible. Instead, change the style attribute for inline styling
+    document.querySelector("#output-color").style.backgroundColor = newStyle;
+}
+
+/* 
+    Let's talk about arrow functions
+    There are some functional differences between normal functions and arrow functions, besides the syntax being slightly shorter   
+*/
+/*
+    -> this
+    The 'this' keyword refers to the object that contains the normal function. When used with an arrow function, it refers to the
+    'this' value of whatever called the arrow function. This is useful for callback functions, because the callback function being
+    called is not going to define its own context and will always refer back to what originally called it.
+
+    Simply put, if you need to access the 'this' keyword in a callback function, make sure you use an arrow function
+*/
+const obj2 = {
+    otherFunc() {
+        console.log(this);
+    }
+};
+
+const obj3 = {
+    callback: () => {
+        console.log(this);
+    }
+}
+
+const obj = {
+    func(nums) {
+        console.log(this);
+        nums.forEach(obj3.callback);
+        obj2.otherFunc();
+    }
+};
+
+/*
+    -> Constructors
+    You cannot use an arrow function as a constructor. In other words, you cannot use the new keyword with an arrow function
+
+    function Valid(string) {
+        this.value = string;
+    }
+
+    const Invalid = string => {
+        this.value = string;
+    }
+
+    const goodConstructor = new Valid('All Good!'); // Valid syntax
+    const badConstructor = new Invalid('No Good!'); // Inalid sytnax (throws an error)
+*/
+/*
+    -> Arguments
+    You cannot access the arguments value in an arrow function. It merely refers to the calling functions arguments, if any
+*/
+
+function hasArgs() {
+    console.log(arguments);
+}
+
+const noArgs = () => {
+    console.log(arguments); // Throws an error if called from the window context
+}
+
+/*
+    -> Inline return
+    If an arrow function contains only one line, it will return the value calculated. Regular functions merely return undefined
+    if they do not explicity return a value.
+*/
+
+const times2 = num => num * 2;
+
+/*
+    -> Hoisting
+    Regular functions are hoisted, unless written as an expression. Arrow functions can only be written as an expression, and
+    as a result are never hoisted
+*/
+
+function hoisted() {
+    console.log("I'm Hoisted!");
+}
+
+const notHoisted = function () {
+    console.log("I'm not hoisted!");
+}
+
+const alsoNotHoisted = () => {
+    console.log("No hoisting here!");
 }

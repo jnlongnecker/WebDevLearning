@@ -104,6 +104,16 @@ input[type=text] {
      padding: 0 .5rem;
  }
 
+ #output-color {
+     margin: auto;
+     width: 6rem;
+     height: 6rem;
+ }
+
+ .hide {
+     display: none;
+ }
+
  #info-section {
   padding: 0 20%;
  }
@@ -119,7 +129,7 @@ input[type=text] {
   padding: 0 10% 10%;
  }
 
- #api-section {
+ #input-section {
      background-color: var(--palette-light);
      padding: 2rem 20%;
      text-align: center;
