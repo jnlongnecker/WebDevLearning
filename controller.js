@@ -75,6 +75,15 @@ function intro() {
         console.log(value);
     }
 
+    /* 
+        Let's talk about hoisting
+
+        When you create a variable, first the variable is declared, then it's assigned.
+        Hoisting is taking the declaration of a variable and moving it to the top of its scope. This also occurs
+        with functions that we write. This allows a function or variable to be used before it seems to have been created
+        in the code.
+    */
+
 }
 
 let sliding = false;
