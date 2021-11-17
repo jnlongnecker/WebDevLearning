@@ -1,12 +1,16 @@
-// In JS, we define methods as functions
+// In JS, we define functions
 // JavaScript is loosely typed, so no data types are defined
+
 function intro() {
 
     // There are 2 ways to define a variable, using let and using var
     // Using let makes the variable scoped, while var is not scoped
     // let is a best practice, and causes variables to behave as they do in Apex
-    let goodVariable = 1;
+    let goodVariable = 5;
     var badVariable = NaN;
+
+    // We can define a constant by using const
+    const theUnchangingOne = 1;
 
     /*
         There are a variety of data types still, but not as many as in Apex:
@@ -18,6 +22,15 @@ function intro() {
         - Undefined
         - Array
         - Object
+    */
+
+    // Strings in particular have a variety of useful methods:
+    /*
+        String.indexOf()
+        String.includes()
+        String.substring()
+        String.split()
+        String.toLowerCase() / String.toUpperCase()
     */
 
     // In JS, instead of lists we have arrays
@@ -57,10 +70,10 @@ function intro() {
         break;
     }
 
-    // for loops are also the same as in Apex, but we define no data type
+    // for loops are also the same as in most programming languages
     for (let index = 0; index < 5; index++) {
 
-        // We can combine JS code in strings using the following syntax with ` backticks
+        // We can combine JS code in strings using the following syntax with ` backticks (Called Template Literals)
         console.log(`At position ${index}`);
     }
 
@@ -72,7 +85,7 @@ function intro() {
 
     // Using the of keyword, we iterate over the values. Objects cannot be used in this way
     for (let value of array) {
-        console.log(value);
+        console.log(`${value}`);
     }
 
     /* 
@@ -86,13 +99,14 @@ function intro() {
 
 }
 
-let sliding = false;
+var sliding = false;
 
 // We can specify event listeners to call code when events are triggered
-window.onload = () => {
+window.onload = function () {
     let images = document.querySelectorAll("img");
     let toggles = document.querySelectorAll("input[type=checkbox]");
     let sliders = document.querySelectorAll("input[type=range]");
+
     for (let image of images) {
         image.addEventListener("click", imageClicked);
     }
