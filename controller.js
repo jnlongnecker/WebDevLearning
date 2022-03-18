@@ -2,18 +2,21 @@
 // JavaScript is loosely typed, so no data types are defined
 
 function intro() {
-
     // There are 2 ways to define a variable, using let and using var
-    // Using let makes the variable scoped, while var is not scoped
-    // let is a best practice, and causes variables to behave as they do in Apex
+    // Using let makes the variable locally scoped, while var is function scoped
+    // let is a best practice, and causes variables to behave in a more understandable manner
+
     let goodVariable = 5;
-    var badVariable = NaN;
+    {
+        // Because var is function scoped, it is accessible even outside of this local scope
+        var badVariable = NaN;
+    }
 
     // We can define a constant by using const
     const theUnchangingOne = 1;
 
     /*
-        There are a variety of data types still, but not as many as in Apex:
+        There are a variety of data types:
         - Number
         - BigInt
         - String
@@ -67,8 +70,16 @@ function intro() {
     // We have while loops in JS as well
     while (goodVariable) {
         console.log("While loop reached!");
+
+        // break can be used to cancel out of any loops
         break;
     }
+
+    // And do while loops, if you really want them
+    do {
+        console.log("Always executes once!");
+    }
+    while (1 > 2)
 
     // for loops are also the same as in most programming languages
     for (let index = 0; index < 5; index++) {
@@ -77,7 +88,7 @@ function intro() {
         console.log(`At position ${index}`);
     }
 
-    // Enhanced for loops, however, are quite different
+    // Enhanced for loops are a little tricky in JS
     // Using the in keyword, we iterate over the keys
     for (let key in myObject) {
         console.log(`${key}: ${myObject[key]}`);

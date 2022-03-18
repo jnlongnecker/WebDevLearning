@@ -23,6 +23,6 @@ export { log }
     provide some extra functionality to whatever you're using. The log function adds console logging functionality to a function
     or a value.
 
-    Keep decorators in your head, because we're going to look at them again when we get to OSS LWC; where we'll be able to use
+    Keep decorators in your head, because we're going to look at them again when we get to Lightning Web Components; where we'll be able to use
     their functionality thanks to the LWC framework.
 */
