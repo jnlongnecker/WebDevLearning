@@ -1,0 +1,57 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Styles shared between the advanced JS pages
+*/
+
+body {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  background-color: #5cdb95;
+  color: #05386b;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+button {
+  margin: 1rem;
+  outline: 0;
+  border: 2px solid #05386b;
+  border-radius: 20px;
+  background-color: #05386b;
+  color: #5cdb95;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #5cdb95;
+  color: #05386b;
+}
+
+button:disabled {
+  cursor: default;
+  background-color: #8ee4af;
+  border-color: #379683;
+  color: #379683;
+}
+
+button:focus-visible {
+  outline: 4px solid #edf5e1;
+}
+
+#decoration {
+  width: 150vw;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  bottom: -75vh;
+  transform: rotate(-10deg);
+  background-image: linear-gradient(to right, #379683, #5cdb95 80%);
+}

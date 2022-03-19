@@ -1,0 +1,95 @@
+<!--
+    Created by: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: A page used to demonstrate the utility of callback functions
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Callback Functions</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styling.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <script src="controller.js"></script>
+</head>
+
+<body>
+
+    <!-- Input form for the timer -->
+    <h2>Set a time, Click the button, and Watch the timer!</h2>
+    <div class="demo">
+        <div class="input">
+            <input type="number" min="1" maxlength="2" max="2" />
+            <label>seconds</label>
+        </div>
+        <button id="go">Go!</button>
+    </div>
+
+    <!-- 
+        Some of you may be curious why the popup is placed here. Why not place it at the top or the bottom?
+        This has to do with tab order. Remember that thing? As a best practice, we shouldn't manipulate it. Well, if 
+        this was placed at the top, the button would be first in the tab order. If it was at the bottom, if I wanted
+        to place any other tabbable elements after the form, those would be next in the tab order. Placing it here
+        puts it in the correct tab order flow for users.
+     -->
+    <div class="background">
+    </div>
+    <div class="popup-holder">
+        <div class="popup">
+            <h2>Woah there, Cowboy</h2>
+            <p id="error-message"></p>
+            <button id="ok">Sorry Chief</button>
+        </div>
+    </div>
+
+    <!-- 
+        Spinner holder is here. While typically it is not a good idea to have your JS populate your HTML, this spinner
+        requires great precision in timing and the angles to be placed at. It would be far more cumbersome to write this
+        in strict HTML and CSS, so we use JavaScript here to fit its strengths.
+     -->
+    <div class="spinner">
+        <p id="timer">0</p>
+    </div>
+
+    <!-- Static text for page explanation -->
+    <p class="explanation">
+        This example uses several callback functions together in order to function:
+    </p>
+    <div class="list">
+        <ul>
+            <li>
+                One callback function starts the timer after a delay for the animation.
+            </li>
+            <li>
+                One callback function stops the timer after the time specified.
+            </li>
+            <li>
+                One callback function decrements the timer.
+            </li>
+            <li>
+                One callback function ends the animation after the time specified.
+            </li>
+            <li>
+                One callback function enables the button after the animation completes.
+            </li>
+        </ul>
+    </div>
+    <p class="explanation">
+        Additionally, there is exception handling for invalid inputs. Try a bad number and see what happens.
+    </p>
+
+    <!-- Page bottom decoration -->
+    <div id="decoration"></div>
+</body>
+
+</html>

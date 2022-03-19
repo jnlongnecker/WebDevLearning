@@ -1,0 +1,66 @@
+<!--
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Description of JavaScripts Event Loop
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Event Loop</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styling.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        Let's discuss the Event Loop, aka the magic behind the scenes that's allowing all this to happen.
+    </h2>
+    <div class="event-loop">
+        <div class="top-bar">
+            <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BLtCLQcd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif14.1.gif"
+                alt="Event loop animation" />
+            <div class="top-content">
+                <p>
+                    The Event Loop is a process that facilitates the asynchronous processes in Javascript. When code is
+                    called it is sent to the Event Queue, where the Event Loop pulls the function and sends it to the
+                    Call
+                    Stack if it is empty. The code then gets executed from the Call Stack and removed when a value
+                    returned.
+                </p>
+
+                <hr />
+
+                <p>
+                    When the asynchronous code is called, it is sent to the Web API that handles that specific type of
+                    asynchronous code. After it completes, the Web API sends the callback to the Event Queue, where the
+                    Event Loop adds it to the Call Stack and the process repeats.
+                </p>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <p>
+                In the example above, you can see the <code>bar()</code> function that contains the
+                <code> setTimeout()</code> function that logs "Second" to the console after a delay. After
+                <code> bar()</code>, <code>foo()</code> then runs which logs "First", then <code>baz()</code> which logs
+                "Third".
+            </p>
+        </div>
+        <a class="slds-text-body_small slds-align_absolute-center"
+            href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">.gif credit</a>
+    </div>
+    <div id="decoration"></div>
+</body>
+
+</html>

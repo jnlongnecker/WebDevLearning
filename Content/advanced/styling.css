@@ -1,0 +1,37 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Styles for the advanced JS landing page
+*/
+
+h1 {
+  font-size: 5rem;
+}
+
+hr {
+  margin: 0 30% 2rem;
+  border: 0;
+  border-top: 50px dotted #edf5e1;
+}
+
+a {
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 1rem;
+  width: 20vw;
+  border: 5px solid #05386b;
+  color: #5cdb95;
+  border-radius: 10px;
+  background-color: #05386b;
+}
+
+a:hover {
+  background-color: #5cdb95;
+  color: #05386b;
+}
+
+.options {
+  padding: 5% 10%;
+  display: flex;
+  justify-content: space-evenly;
+}

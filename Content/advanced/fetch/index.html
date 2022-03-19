@@ -1,0 +1,90 @@
+<!--
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Fetch API Demo page
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fetch API</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styling.css" />
+    <link rel="stylesheet" href="pokeInfo.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="controller.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <h2>Type a Pokemon name in the box and hit Search!</h2>
+        </section>
+
+        <!-- The search role designates an area used for some kind of search controls -->
+        <section tabindex="0" role="search">
+
+            <!-- Interactable elements must be constructed with great attention. They must be labeled for clarity -->
+            <!-- Construct the page to preserve the proper tab order: input first then button -->
+            <input aria-label="Pokemon name input" type="text" class="text-box" value="Nidoking" />
+            <button id="search">Search</button>
+        </section>
+
+        <!-- Include aria where more description is useful. Here, it is just information so aria doesn't provide anything new -->
+        <section class="results-section">
+            <div class="pkm-results">
+                <div class="panel">
+                    <h3 class="pkm-header">Abilities</h3>
+                    <ul id="abilities" class="pkm-abilities">
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 id="name" class="pkm-header">Ditto</h3>
+
+                    <!-- Alt text set by JS -->
+                    <img id="pkm-image" alt="No Pokemon Chosen Yet!" />
+                    <ul id="types" class="pkm-types">
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 class="pkm-header">Stats</h3>
+                    <ul class="pkm-stats">
+                        <li id="hp">HP: 0</li>
+                        <li id="attack">Attack: 0</li>
+                        <li id="defense">Defense: 0</li>
+                        <li id="sp-attack">Sp. Attack: 0</li>
+                        <li id="sp-defense">Sp. Defense: 0</li>
+                        <li id="speed">Speed: 0</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <p>
+                This API example uses the Fetch API, which deals with Promises. Promises are special objects that don't
+                have a value when they're created, but resolve to a value asynchronously. In other words, it "promises"
+                a value when it has completed.
+            </p>
+        </section>
+    </div>
+
+    <div class="popup-holder">
+        <div class="popup">
+            <h2>Sorry Pal</h2>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <div id="decoration"></div>
+</body>
+
+</html>

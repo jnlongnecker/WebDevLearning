@@ -1,0 +1,239 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Styles for the pokemon information box
+*/
+
+:root {
+  --normal: #a8a878;
+  --fire: #f08030;
+  --fightning: #c03028;
+  --water: #6890f0;
+  --flying: #a890f0;
+  --grass: #78c850;
+  --poison: #a040a0;
+  --electric: #f8d030;
+  --ground: #e0c068;
+  --psychic: #f85888;
+  --rock: #b8a038;
+  --ice: #98d8d8;
+  --bug: #a8b820;
+  --dragon: #7038f8;
+  --ghost: #705898;
+  --dark: #705848;
+  --steel: #b8b8d0;
+  --fairy: #ee99ac;
+  --theme-red: #5cdb95;
+  --light-theme-red: #edf5e1;
+}
+
+@keyframes rise-in {
+  from {
+    transform: translateY(-5000px) scale(0.1, 1.9);
+  }
+  35% {
+    transform: translateY(0) scale(0.85, 1.25);
+  }
+  45% {
+    transform: translateY(0) scale(1.15, 0.85);
+  }
+  55% {
+    transform: translateY(0) scale(0.95, 1.05);
+  }
+  65%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+section {
+  text-align: center;
+}
+
+hr {
+  height: 2px;
+  background: var(--theme-red);
+  border: 0;
+}
+
+.pkm-results {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.pkm-results img {
+  border: 2px solid #333;
+  border-radius: 100%;
+  margin: 0.5rem;
+  padding: 0.3rem;
+  background-image: linear-gradient(
+    #ff5555 49%,
+    #333 49%,
+    #333 50.5%,
+    #fff 50.5%,
+    #fff 100%
+  );
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  background: var(--light-theme-red);
+  min-width: 15vw;
+  font-size: 1.2rem;
+}
+
+.panel + .panel {
+  border-left: 2px solid var(--theme-red);
+}
+
+.panel li {
+  list-style-type: none;
+}
+
+.pkm-header {
+  font-size: 1.3rem;
+  margin: 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+.pkm-types {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.pkm-types li {
+  font-size: 0.8rem;
+  border-radius: 100px;
+  padding: 0.3rem;
+  min-width: 3rem;
+  margin: 0 0.5rem;
+  text-align: center;
+}
+
+.pkm-abilities {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0;
+  height: 100%;
+}
+
+.pkm-stats {
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+  align-items: flex-start;
+}
+
+.nav-buttons {
+  flex-basis: 20vw;
+}
+
+.nav-buttons button {
+  min-width: 5rem;
+}
+
+.rise-in {
+  animation: rise-in 1.5s forwards linear;
+}
+
+.results-section {
+  transform: translateY(100vh);
+}
+
+.Normal {
+  color: white;
+  background-color: var(--normal);
+}
+
+.Fire {
+  color: white;
+  background-color: var(--fire);
+}
+
+.Fighting {
+  color: white;
+  background-color: var(--fightning);
+}
+
+.Water {
+  color: white;
+  background-color: var(--water);
+}
+
+.Flying {
+  color: white;
+  background-color: var(--flying);
+}
+
+.Grass {
+  color: white;
+  background-color: var(--grass);
+}
+
+.Poison {
+  color: white;
+  background-color: var(--poison);
+}
+
+.Electric {
+  color: white;
+  background-color: var(--electric);
+}
+
+.Ground {
+  color: white;
+  background-color: var(--ground);
+}
+
+.Psychic {
+  color: white;
+  background-color: var(--psychic);
+}
+
+.Rock {
+  color: white;
+  background-color: var(--rock);
+}
+
+.Ice {
+  color: white;
+  background-color: var(--ice);
+}
+
+.Bug {
+  color: white;
+  background-color: var(--bug);
+}
+
+.Dragon {
+  color: white;
+  background-color: var(--dragon);
+}
+
+.Ghost {
+  color: white;
+  background-color: var(--ghost);
+}
+
+.Dark {
+  color: white;
+  background-color: var(--dark);
+}
+
+.Steel {
+  color: white;
+  background-color: var(--steel);
+}
+
+.Fairy {
+  color: white;
+  background-color: var(--fairy);
+}

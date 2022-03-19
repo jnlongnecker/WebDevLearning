@@ -1,0 +1,14 @@
+{
+  "name": "introtowebdev",
+  "version": "1.0.0",
+  "description": "Intoductory WebDev topics",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jared Longnecker",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

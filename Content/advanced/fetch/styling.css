@@ -1,0 +1,33 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: General page styles for the Fetch API HTML page
+*/
+
+input,
+button {
+  margin: 1rem 0.5rem;
+}
+
+section > p {
+  width: clamp(45ch, 50vw, 75ch);
+  font-size: 1.4rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-box {
+  font-size: 1.5rem;
+  border: 0;
+  background-color: #edf5e1;
+  color: #05386b;
+}
+
+.text-box:focus-visible {
+  outline: 2px solid #05386b;
+}

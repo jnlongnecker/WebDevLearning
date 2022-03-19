@@ -1,0 +1,178 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Styles for the basics of HTML, CSS and JavaScript
+*/
+
+/*
+    Use custom properties (CSS Variables) to define often used values
+    By convention these go in the :root pseudoselector, but can be defined anywhere.
+*/
+:root {
+  --palette-lightest: #8ee4af;
+  --palette-light: #5cdb95;
+  --palette-dark: #379683;
+  --palette-darkest: #05386b;
+  --white: #edf5e1;
+  --black: #09090a;
+}
+
+/*
+    CSS style convention places tag selectors first, then class selectors, then id selectors.
+    html and body are valid tag selectors and essentially select the entire document, but remember
+    that body IS inside of html.
+*/
+html {
+  color: var(--black);
+}
+
+body {
+  /* Measurements can be static (px) or responsive (vw, vh, em, rem, %) */
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: 200px;
+  border: 2px solid var(--palette-light);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+/* Creative styling of the horizontal rule can yield some cool results, like the dots to divide sections */
+hr {
+  border: 0;
+  border-top: 30px dotted var(--white);
+  /*
+    margin, padding and border are all examples of shorthand properties. For example, margin is short for the 4 margin
+    properties of margin-top, margin-right, margin-bottom and margin-left and in fact, putting values in that order sets 
+    those properties in that order.
+  */
+  margin: 0 40%;
+}
+
+/* We can also use multiple selectors at once */
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.25rem;
+}
+
+/* We can use the :hover pseudoselector to define behavior when an element is hovered on */
+img:hover {
+  cursor: pointer;
+}
+
+/* We can also select tags with specific attribute settings */
+input[type="button"] {
+  border: 0;
+  border-radius: 15px;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--palette-lightest);
+  color: var(--black);
+}
+
+input[type="button"]:hover {
+  cursor: pointer;
+  background-color: var(--palette-darkest);
+  color: var(--palette-lightest);
+}
+
+input[type="text"] {
+  border: 0;
+  height: 1.4rem;
+  border-radius: 5px;
+  background-color: var(--palette-lightest);
+}
+
+/* We select classes by using the . prefix */
+.expanded {
+  height: 300px;
+  transition: 0.5s;
+}
+
+.guitarist {
+  display: inline-block;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.centered {
+  text-align: center;
+}
+
+.sprite {
+  height: 7rem;
+  border: solid 2px var(--palette-lightest);
+  border-radius: 100%;
+}
+
+.type {
+  border: solid 2px var(--black);
+  border-radius: 15px;
+  padding: 0 0.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+/* We select id's by using the # prefix */
+#output-color {
+  margin: auto;
+  width: 6rem;
+  height: 6rem;
+}
+
+#info-section {
+  height: 100vh;
+}
+
+#with-css {
+  padding-top: 3rem;
+  font-family: "Gill Sans", sans-serif;
+  background: radial-gradient(
+    circle,
+    var(--palette-light) 70%,
+    var(--palette-dark)
+  );
+  color: var(--palette-darkest);
+  background-color: var(--palette-light);
+  color: var(--palette-darkest);
+  min-height: 100vh;
+}
+
+/*
+    The flexbox is an extremely powerful, if slightly advanced tool for styling your pages. It gives you the greatest control over spacing
+    and alignment if you know how to wield it. https://flexboxfroggy.com/ is a fantastic resource to learn this tool.
+    Here, the flexbox is used to evenly space out my 5 guitarists and place them side by side in a row. That's all it took!
+*/
+#guitarist-section {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 10% 10%;
+}
+
+#input-section {
+  padding: 2rem 20%;
+  text-align: center;
+}
+
+#result-content {
+  max-width: 40%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 2px solid var(--palette-darkest);
+  border-radius: 5px;
+}
+
+#result-text {
+  margin: 0;
+}
+
+#result-data {
+  display: flex;
+  justify-content: space-evenly;
+}
