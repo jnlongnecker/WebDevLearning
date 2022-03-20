@@ -1,3 +1,9 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Simple module to showcase new ES6 features
+*/
+
 // You're only allowed to use imports on modules
 import { log } from "./util.js";
 

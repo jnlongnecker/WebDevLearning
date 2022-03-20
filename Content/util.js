@@ -1,3 +1,9 @@
+/*
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Simple module for exports and to showcase decorators
+*/
+
 function log(input) {
     if (typeof input === "function") {
         console.log("Calling function");
