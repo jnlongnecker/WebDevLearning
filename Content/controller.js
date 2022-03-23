@@ -7,114 +7,148 @@
 // In JS, we define functions
 // JavaScript is loosely typed, so no data types are defined
 
-function intro() {
-    // There are 2 ways to define a variable, using let and using var
-    // Using let makes the variable locally scoped, while var is function scoped
-    // let is a best practice, and causes variables to behave in a more understandable manner
+// There are 2 ways to define a variable, using let and using var
+// Using let makes the variable locally scoped, while var is function scoped
+// let is a best practice, and causes variables to behave in a more understandable manner
 
-    let goodVariable = 5;
-    {
-        // Because var is function scoped, it is accessible even outside of this local scope
-        var badVariable = NaN;
-    }
-
-    // We can define a constant by using const
-    const theUnchangingOne = 1;
-
-    /*
-        There are a variety of data types:
-        - Number
-        - BigInt
-        - String
-        - Boolean
-        - Null
-        - Undefined
-        - Array
-        - Object
-    */
-
-    // Strings in particular have a variety of useful methods:
-    /*
-        String.indexOf()
-        String.includes()
-        String.substring()
-        String.split()
-        String.toLowerCase() / String.toUpperCase()
-    */
-
-    // In JS, instead of lists we have arrays
-    let array = [];
-    array.push("Value 1");
-    array.push("Value 2");
-
-    // In JS, we also can define objects using object syntax
-    let myObject = {
-        objName: "A Name",
-        number: 123,
-        value: "Sample Value"
-    }
-
-    /* In JS, values are either Truthy or Falsey
-       The Falsey values are:
-       - "", '', ``
-       - NaN
-       - Null
-       - Undefined
-       - False
-       - 0, 0n, -0
-       - document.all
-       If a value is not Falsey, it is Truthy
-    */
-    // console.log is used to print to the console
-    if (badVariable) {
-        console.log("This code is never reached!");
-    }
-    else if (goodVariable) {
-        console.log("This code will be reached!");
-    }
-
-    // We have while loops in JS as well
-    while (goodVariable) {
-        console.log("While loop reached!");
-
-        // break can be used to cancel out of any loops
-        break;
-    }
-
-    // And do while loops, if you really want them
-    do {
-        console.log("Always executes once!");
-    }
-    while (1 > 2)
-
-    // for loops are also the same as in most programming languages
-    for (let index = 0; index < 5; index++) {
-
-        // We can combine JS code in strings using the following syntax with ` backticks (Called Template Literals)
-        console.log(`At position ${index}`);
-    }
-
-    // Enhanced for loops are a little tricky in JS
-    // Using the in keyword, we iterate over the keys
-    for (let key in myObject) {
-        console.log(`${key}: ${myObject[key]}`);
-    }
-
-    // Using the of keyword, we iterate over the values. Objects cannot be used in this way
-    for (let value of array) {
-        console.log(`${value}`);
-    }
-
-    /* 
-        Let's talk about hoisting
-
-        When you create a variable, first the variable is declared, then it's assigned.
-        Hoisting is taking the declaration of a variable and moving it to the top of its scope. This also occurs
-        with functions that we write. This allows a function or variable to be used before it seems to have been created
-        in the code.
-    */
-
+let goodVariable = 5;
+{
+    // Because var is function scoped, it is accessible even outside of this local scope
+    var badVariable = NaN;
 }
+
+// We can define a constant by using const
+const theUnchangingOne = 1;
+
+/*
+    There are a variety of data types:
+    - Number
+    - BigInt
+    - String
+    - Boolean
+    - Null
+    - Undefined
+    - Array
+    - Object
+*/
+
+// Strings in particular have a variety of useful methods:
+/*
+    String.indexOf()
+    String.includes()
+    String.substring()
+    String.split()
+    String.toLowerCase() / String.toUpperCase()
+*/
+
+// In JS, instead of lists we have arrays
+let array = [];
+array.push("Value 1");
+array.push("Value 2");
+console.log(array[0]);
+
+// In JS, we also can define objects using object syntax
+let myObject = {
+    objName: "A Name",
+    number: 123,
+    value: "Sample Value"
+}
+
+/* In JS, values are either Truthy or Falsey
+   The Falsey values are:
+   - "", '', ``
+   - NaN
+   - Null
+   - Undefined
+   - False
+   - 0, 0n, -0
+   - document.all
+   If a value is not Falsey, it is Truthy
+*/
+// console.log is used to print to the console
+if (badVariable) {
+    console.log("This code is never reached!");
+}
+else if (goodVariable) {
+    console.log("This code will be reached!");
+}
+
+// Let's talk about type coercion
+let stringNumber = "10";
+let numberNumber = 10;
+
+// If we use ==, JavaScript is going to change the types of both to be the same, then see if they're equal
+if (stringNumber == numberNumber) {
+    console.log("They're Equal!");
+}
+
+// If we use ===, JavaScript WON'T do that, and if they're different data types, this evaluates to false
+if (stringNumber === numberNumber) {
+    console.log("They're SUPER equal!");
+}
+else {
+    console.log("Well, they're not that equal");
+}
+
+// A switch statement is a good way of doing many if-else statements with less syntax
+switch (myObject.number) {
+    case 1:
+        console.log("The number is One!");
+        break;
+    case 2, 4, 6, 8:
+        console.log("The number is Even and Less than 10!");
+        break;
+    default:
+        console.log("The number is boring!");
+        break;
+}
+
+// We have while loops in JS as well
+while (goodVariable) {
+    console.log("While loop reached!");
+
+    // break can be used to cancel out of any loops
+    break;
+}
+
+// And do while loops, if you really want them
+do {
+    console.log("Always executes once!");
+}
+while (1 > 2)
+
+// for loops are also the same as in most programming languages
+for (let index = 0; index < 5; index++) {
+
+    // We can combine JS code in strings using the following syntax with ` backticks (Called Template Literals)
+    console.log(`At position ${index}`);
+}
+
+// Enhanced for loops are a little tricky in JS
+// Using the in keyword, we iterate over the keys
+for (let key in myObject) {
+    console.log(`${key}: ${myObject[key]}`);
+}
+
+// Using the of keyword, we iterate over the values. Objects cannot be used in this way
+for (let value of array) {
+    console.log(`${value}`);
+}
+
+/* 
+    Let's talk about hoisting
+
+    When you create a variable, first the variable is declared, then it's assigned.
+    Hoisting is taking the declaration of a variable and moving it to the top of its scope. This also occurs
+    with functions that we write. This allows a function or variable to be used before it seems to have been created
+    in the code.
+*/
+
+/*
+    Now, all of this code just gets run as soon as the JavaScript file is loaded by the browser. This is usually not
+    what we want, so how do we actually get code to run when *Stuff*™ happens?
+*/
+
 
 var sliding;
 
