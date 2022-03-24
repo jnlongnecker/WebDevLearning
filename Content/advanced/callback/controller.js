@@ -126,6 +126,7 @@ function validateInput(input) {
     console.log(input);
     // You can throw an exception (again, called an Error because JS) in a multitude of ways
     if (!input) throw new Error("C'mon partner, at least put something in there?");
+    if (input.indexOf(".") != -1) throw new Error("Woah there, no fancy digits!");
     if (input == 0) throw new Error("You gotta have at least 1 second in there.");
     if (input >= 100) throw new Error("That's way too long partner. Keep it under 100.");
     if (input < 0) throw new Error("Negative time? Ain't no such thing. Keep it positive.");
