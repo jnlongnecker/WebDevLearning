@@ -19,65 +19,6 @@ window.onload = () => {
 // Global variable to track the current pokemon payload
 let pokemonData;
 
-// Use custom get functions to retrieve the desired pieces of data
-function getPkmName() {
-    return nameForDisplay(pokemonData.name);
-}
-
-function getPkmSprite() {
-    return pokemonData.sprites.front_default;
-}
-
-function getAltText() {
-    return `Front Sprite for ${getPkmName()}`;
-}
-
-function getPkmTypes() {
-    let types = pokemonData.types.map(t => nameForDisplay(t.type.name));
-
-    let htmlString = "";
-    for (let type of types) {
-        htmlString += `<li class="${type}">${type}</li>`;
-    }
-    return htmlString;
-}
-
-function getPkmAbilities() {
-    let abilities = pokemonData.abilities.map(t => {
-        return (t.is_hidden) ? `Hidden Ability: ${nameForDisplay(t.ability.name)}` : nameForDisplay(t.ability.name);
-    });
-
-    let htmlString = "";
-    for (let ability of abilities) {
-        htmlString += `<li>${ability}</li>`;
-    }
-    return htmlString;
-}
-
-function getPkmHealth() {
-    return "HP: " + pokemonData.stats[0].base_stat;
-}
-
-function getPkmAttack() {
-    return "Attack: " + pokemonData.stats[1].base_stat;
-}
-
-function getPkmDefense() {
-    return "Defense: " + pokemonData.stats[2].base_stat;
-}
-
-function getPkmSpAttack() {
-    return "Sp. Attack: " + pokemonData.stats[3].base_stat;
-}
-
-function getPkmSpDefense() {
-    return "Sp. Defense: " + pokemonData.stats[4].base_stat;
-}
-
-function getPkmSpeed() {
-    return "Speed: " + pokemonData.stats[5].base_stat;
-}
-
 // This is where the magic happens
 function updatePokemonData(event) {
 
@@ -154,4 +95,74 @@ function showPopup() {
         popup.classList.remove("flip-in");
         popup.classList.add("flip-out");
     }, 3000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Use custom get functions to retrieve the desired pieces of data
+function getPkmName() {
+    return nameForDisplay(pokemonData.name);
+}
+
+function getPkmSprite() {
+    return pokemonData.sprites.front_default;
+}
+
+function getAltText() {
+    return `Front Sprite for ${getPkmName()}`;
+}
+
+function getPkmTypes() {
+    let types = pokemonData.types.map(t => nameForDisplay(t.type.name));
+
+    let htmlString = "";
+    for (let type of types) {
+        htmlString += `<li class="${type}">${type}</li>`;
+    }
+    return htmlString;
+}
+
+function getPkmAbilities() {
+    let abilities = pokemonData.abilities.map(t => {
+        return (t.is_hidden) ? `Hidden Ability: ${nameForDisplay(t.ability.name)}` : nameForDisplay(t.ability.name);
+    });
+
+    let htmlString = "";
+    for (let ability of abilities) {
+        htmlString += `<li>${ability}</li>`;
+    }
+    return htmlString;
+}
+
+function getPkmHealth() {
+    return "HP: " + pokemonData.stats[0].base_stat;
+}
+
+function getPkmAttack() {
+    return "Attack: " + pokemonData.stats[1].base_stat;
+}
+
+function getPkmDefense() {
+    return "Defense: " + pokemonData.stats[2].base_stat;
+}
+
+function getPkmSpAttack() {
+    return "Sp. Attack: " + pokemonData.stats[3].base_stat;
+}
+
+function getPkmSpDefense() {
+    return "Sp. Defense: " + pokemonData.stats[4].base_stat;
+}
+
+function getPkmSpeed() {
+    return "Speed: " + pokemonData.stats[5].base_stat;
 }

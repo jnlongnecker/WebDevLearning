@@ -4,9 +4,28 @@
     Description: Simple module to showcase new ES6 features
 */
 
+/*
+    Strict mode was introduced in ES5 to clean up some of the sloppiness of JavaScript. You have to
+    "opt-in" to using it, so let's talk about what it does:
+    - There's some JavaScript errors that occur silently. This can be an issue, so strict mode makes 
+        those errors occur loudly so that you can fix them.
+    - There are some JavaScript semantics that can cause the engines that run it unable to optimize 
+        due to mistakes in the language. Strict mode fixes those mistakes, often times allowing 
+        identical code to run faster.
+    You can use strict mode for an entire script by putting it at the top, or you can only use it
+    for one function by putting it at the top of the function inside the {}.
+*/
+
+// Since this is a module, technically it's already in strict mode. But, this is the syntax for
+// entering strict mode.
+"use strict"
+
+
+
 // You're only allowed to use imports on modules
 import { log } from "./util.js";
 
+// Classes were introduced in ES6
 class MyClass {
     // classes can be created in JavaScript, similar to OOP languages
 
@@ -20,12 +39,14 @@ class MyClass {
 
     // When a function belongs to a class, it is called a method
     myMethod() {
-        let arrowFunction = () => 18 * 2;
+        // Arrow functions are also an ES6 feature, as are Template Literals
+        let arrowFunction = () => `The answer is ${18 * 2}`;
         return log(arrowFunction);
     }
 }
 
-let object = new MyClass("Sample");
+// We've been using let, but it actually was introduced in ES6!
+let object = new MyClass(`Sample`);
 object.myMethod();
 console.log(JSON.stringify(object));
 

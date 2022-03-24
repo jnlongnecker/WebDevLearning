@@ -259,29 +259,29 @@ function manualSliderUpdate() {
 */
 /*
     -> this
-    The 'this' keyword refers to the object that contains the normal function. When used with an arrow function, it refers to the
-    'this' value of whatever called the arrow function. This is useful for callback functions, because the callback function being
-    called is not going to define its own context and will always refer back to what originally called it.
-
-    Simply put, if you need to access the 'this' keyword in a callback function, make sure you use an arrow function
+    The 'this' keyword refers to the object that contains the normal function, or the normal function itself. Functions in 
+    JavaScript, like Arrays, inherit from Object. When used with an arrow function, it refers to the 'this' value of whatever 
+    called the arrow function. This is useful for callback functions, because the callback function being called is not going 
+    to define its own context and will always refer back to what originally called it. This can be a problem for an arrow
+    function in an object though because it won't have access to the objects properties.
+    
+    Simply put, if you want to use a callback function, you should probably use an arrow function. If you want to use a method, 
+    use a normal function.
 */
-const obj2 = {
-    otherFunc() {
-        console.log(this);
+
+const arrow = {
+    myValue: 37,
+    func: () => {
+        console.log(this.myValue);
+        return this.myValue;
     }
 };
 
-const obj3 = {
-    callback: () => {
-        console.log(this);
-    }
-}
-
-const obj = {
-    func(nums) {
-        console.log(this);
-        nums.forEach(obj3.callback);
-        obj2.otherFunc();
+const normal = {
+    myValue: 37,
+    func: function () {
+        console.log(this.myValue);
+        return this.myValue;
     }
 };
 
