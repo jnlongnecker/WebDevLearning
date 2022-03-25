@@ -9,8 +9,7 @@ body {
   text-align: center;
   background-color: #5cdb95;
   color: #05386b;
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -50,7 +49,7 @@ button:focus-visible {
   width: 150vw;
   height: 100vh;
   z-index: -1;
-  position: absolute;
+  position: fixed;
   bottom: -75vh;
   transform: rotate(-10deg);
   background-image: linear-gradient(to right, #379683, #5cdb95 80%);

@@ -1,0 +1,101 @@
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+hr {
+  margin: 0 30% 2rem;
+  border: 0;
+  border-top: 50px dotted #edf5e1;
+}
+
+input {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  font-size: 1.2rem;
+}
+
+input[type="text"] {
+  width: 10rem;
+}
+
+input[type="number"] {
+  text-align: center;
+  width: 6rem;
+}
+
+p {
+  max-width: 33vw;
+}
+
+img {
+  z-index: -1;
+  position: fixed;
+  transform: skewX(-15deg);
+  top: 6rem;
+  opacity: 0.75;
+}
+
+section {
+  background-color: #edf5e1;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 0.8rem 1rem 1rem;
+}
+
+ul,
+ol {
+  text-align: left;
+}
+
+.button-holder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  border-radius: 100%;
+  color: #edf5e1;
+  font-size: 0.8rem;
+  background-color: #05386b;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  padding: 0;
+  vertical-align: top;
+  cursor: default;
+}
+
+#type-holder {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.form-holder {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+#section-organizer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0 10% 10%;
+  align-items: center;
+  align-content: space-around;
+  gap: 1rem;
+}
+
+#the-funk {
+  display: flex;
+  justify-content: center;
+}

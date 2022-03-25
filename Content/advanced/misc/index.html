@@ -1,0 +1,122 @@
+<!--
+    Created By: Jared Longnecker
+    Last Updated: 03/19/2022
+    Description: Advanced JavaScript landing page
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Title is a required tag in HTML 5 -->
+    <title>Advanced JavaScript</title>
+    <meta name="keywords" content="Intro, Introduction, Web, Developer, WebDev, HTML, CSS, JavaScript, JS" />
+    <meta name="description" content="An introduction to basic WebDev technologies." />
+    <meta name="revised" content="Revature, 11/15/2021" />
+    <meta name="author" content="Jared Longnecker" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styling.css" />
+    <link rel="stylesheet" href="../common.css" />
+    <script src="controller.js"></script>
+</head>
+
+<body>
+    <h1>JavaScript Funk</h1>
+    <hr />
+    <div id="the-funk">
+        <img src="funk.png" alt="The word Funk in funky letters" />
+    </div>
+
+    <div id="section-organizer">
+        <section>
+            <h2>Script Placement<div id="script" class="info">i</div>
+            </h2>
+            <p id="before">This text should be changed, but it wasn't loaded in when querySelector was called!</p>
+            <p id="after">This text will be changed, you'll never see this version!</p>
+        </section>
+        <section>
+            <h2>Adding Elements<div id="add-elements" class="info">i</div>
+            </h2>
+            <div class="button-holder">
+                <button id="add-btn">Click To Add!</button>
+                <button id="remove-btn">Click To Remove!</button>
+            </div>
+            <div id="element-holder"></div>
+        </section>
+        <section>
+            <h2>Forms</h2>
+            <p>
+                Inputs outside of a form don't get some benefits of forms. These are two identical inputs, but 1 is in a
+                form and the other is not.
+            </p>
+            <div class="form-holder">
+                <div>
+                    <h3>No Form</h3>
+                    <input type="text" minlength="5" maxlength="10" required pattern=".*\d+([^0-9a-zA-z])+.*" />
+                    <button id="no-form-btn">Submit</button>
+                </div>
+                <form>
+                    <h3>Form</h3>
+                    <input type="text" minlength="5" maxlength="10" required pattern=".*\d+([^0-9a-zA-z])+.*" />
+                    <button id="form-btn">Submit</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <h2>Weird Truths about JavaScript</h2>
+            <div id="the-truths"></div>
+        </section>
+        <section>
+            <h2>Primitives vs Non-Primitives</h2>
+            <div id="type-holder">
+                <div>
+                    <p>The following are Primitive Data Types</p>
+                    <ul>
+                        <li>Boolean</li>
+                        <li>Null</li>
+                        <li>Undefined</li>
+                        <li>Number</li>
+                        <li>BigInt</li>
+                        <li>String</li>
+                        <li>Symbol</li>
+                    </ul>
+                    <div class="form-holder">
+                        <input id="primitive-input" type="number" />
+                        <button id="primitive-btn">Go!</button>
+                    </div>
+                    <p id="primitive-text"></p>
+                </div>
+                <div>
+                    <p>The following are Non-Primitive Data Types</p>
+                    <ul>
+                        <li>Object</li>
+                        <li>Function (inherits from Object)</li>
+                        <li>Array (inherits from Object)</li>
+                        <li>Map</li>
+                        <li>Set</li>
+                        <li>JSON</li>
+                        <li>More! (Anything Custom)</li>
+                    </ul>
+                    <div class="form-holder">
+                        <input id="complex-input" type="number" />
+                        <button id="complex-btn">Go!</button>
+                    </div>
+                    <p id="complex-text"></p>
+                </div>
+            </div>
+            <p>
+                In JavaScript, primitives are passed by value while non-primitives are passed by reference. This demo
+                will add 5 to each number after being passed to another function that displays after a delay. The only
+                difference is the right number is wrapped in an Object, so it gets passed by reference.
+            </p>
+        </section>
+    </div>
+
+    <div id="decoration"></div>
+</body>
+
+</html>

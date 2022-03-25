@@ -47,6 +47,13 @@ array.push("Value 1");
 array.push("Value 2");
 console.log(array[0]);
 
+let filledArray = ["Item A", "Item B"];
+filledArray.push("Item C");
+console.log(filledArray.shift());   // Result: "Item A"
+console.log(filledArray[0]);        // Result: "Item B"
+console.log(filledArray.pop());     // Result: "Item C"
+console.log(filledArray.length);    // Result: 1
+
 // In JS, we also can define objects using object syntax
 let myObject = {
     objName: "A Name",
