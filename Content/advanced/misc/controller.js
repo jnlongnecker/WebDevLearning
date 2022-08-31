@@ -85,7 +85,6 @@ function addTruths() {
     addTruthToNode(truthHolder, `-5 / 0 = ${-5 / 0}`);
     addTruthToNode(truthHolder, `5 / 0 = ${5 / 0}`);
     addTruthToNode(truthHolder, `0.1 + 0.2 = ${0.1 + 0.2}`);
-
 }
 
 // Helper function to add a truth

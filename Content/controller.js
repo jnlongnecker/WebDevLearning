@@ -214,7 +214,7 @@ function toggleFlipped(event) {
     // A much easier way to turn a class "on" or "off" is to use the toggle function
     inputChannel.classList.toggle("hide");
 
-    // Be sure to not only fulfill the functionality, but also update the aria attributes for accessiblity
+    // Be sure to not only fulfill the functionality, but also update the aria attributes for accessibility
     inputChannel.setAttribute("aria-hidden", toggle.getAttribute("checked"));
     toggle.setAttribute("aria-checked", toggle.getAttribute("checked"));
 
@@ -258,90 +258,4 @@ function manualSliderUpdate() {
     sliding = true;
     sliderAdjusted();
     sliding = false;
-}
-
-/* 
-    Let's talk about arrow functions
-    There are some functional differences between normal functions and arrow functions, besides the syntax being slightly shorter   
-*/
-/*
-    -> this
-    The 'this' keyword refers to the object that contains the normal function, or the normal function itself. Functions in 
-    JavaScript, like Arrays, inherit from Object. When used with an arrow function, it refers to the 'this' value of whatever 
-    called the arrow function. This is useful for callback functions, because the callback function being called is not going 
-    to define its own context and will always refer back to what originally called it. This can be a problem for an arrow
-    function in an object though because it won't have access to the objects properties.
-    
-    Simply put, if you want to use a callback function, you should probably use an arrow function. If you want to use a method, 
-    use a normal function.
-*/
-
-const arrow = {
-    myValue: 37,
-    func: () => {
-        console.log(this.myValue);
-        return this.myValue;
-    }
-};
-
-const normal = {
-    myValue: 37,
-    func: function () {
-        console.log(this.myValue);
-        return this.myValue;
-    }
-};
-
-/*
-    -> Constructors
-    You cannot use an arrow function as a constructor. In other words, you cannot use the new keyword with an arrow function
-
-    function Valid(string) {
-        this.value = string;
-    }
-
-    const Invalid = string => {
-        this.value = string;
-    }
-
-    const goodConstructor = new Valid('All Good!'); // Valid syntax
-    const badConstructor = new Invalid('No Good!'); // Inalid sytnax (throws an error)
-*/
-/*
-    -> Arguments
-    You cannot access the arguments value in an arrow function. It merely refers to the calling functions arguments, if any
-*/
-
-function hasArgs() {
-    console.log(arguments);
-}
-
-const noArgs = () => {
-    console.log(arguments); // Throws an error if called from the window context
-}
-
-/*
-    -> Inline return
-    If an arrow function contains only one line, it will return the value calculated. Regular functions merely return undefined
-    if they do not explicity return a value.
-*/
-
-const times2 = num => num * 2;
-
-/*
-    -> Hoisting
-    Regular functions are hoisted, unless written as an expression. Arrow functions can only be written as an expression, and
-    as a result are never hoisted
-*/
-
-function hoisted() {
-    console.log("I'm Hoisted!");
-}
-
-const notHoisted = function () {
-    console.log("I'm not hoisted!");
-}
-
-const alsoNotHoisted = () => {
-    console.log("No hoisting here!");
 }
