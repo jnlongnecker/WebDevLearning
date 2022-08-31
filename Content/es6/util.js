@@ -128,3 +128,23 @@ let arrowCount10 = arrowCounter(10);
 
 log(arrowCount10);
 log(arrowCount10);
+
+
+// ---------- EXAMPLE 4 ----------
+// If we just want to have the closure one time and don't want to make arbitrary numbers of them, we can use an IIFE
+// IIFE : Immediately Invoked Function Expression
+
+// Note: Arrow functions are necessary here, they are just easier syntax
+let globalCounter = 0;
+const reset = ((resetTo) => {
+    return () => globalCounter = resetTo;
+})(10);
+
+// Now, we can just call reset to reset our global counter to whatever we put, and nobody can change what that is!
+
+console.log('---- Reset Example Output ----');
+
+log(globalCounter++);
+log(++globalCounter);
+reset();
+log(globalCounter);

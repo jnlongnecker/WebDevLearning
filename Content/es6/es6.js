@@ -38,6 +38,7 @@ class MyClass {
 
     // When a function belongs to a class, it is called a method
     myMethod() {
+        console.log('---- myMethod Output ----');
         // Arrow functions are also an ES6 feature, as are Template Literals
         let arrowFunction = () => `The answer is ${18 * 2}`;
         return log(arrowFunction);
