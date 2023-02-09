@@ -90,6 +90,11 @@
  *              PAGE CSS
  * *****************************************/
 
+body {
+  padding: 0;
+  overflow: hidden;
+}
+
 p {
   padding: 0 10%;
   font-size: 1.5rem;

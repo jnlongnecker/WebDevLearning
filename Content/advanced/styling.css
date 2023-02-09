@@ -33,5 +33,6 @@ a:hover {
 .options {
   padding: 5% 10%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 1rem;
 }
