@@ -50,6 +50,7 @@ async function getPokemon(pokemonName) {
 }
 
 // AJAX is the older way of making an API callout
+// Stands for Asynchronous Javascript And XML
 function usingAjax(pokemonName) {
     let request = new XMLHttpRequest();
     request.onreadystatechange = function () {
