@@ -49,6 +49,20 @@ async function getPokemon(pokemonName) {
     */
 }
 
+// AJAX is the older way of making an API callout
+function usingAjax(pokemonName) {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // Handle response
+        }
+    };
+    request.open("GET", "https://pokeapi.co/api/v2/pokemon/" + pokemonName, true);
+    request.send();
+
+    // You can tell that it is a lot less elegant and clunky to use
+}
+
 
 
 /*
