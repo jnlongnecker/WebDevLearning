@@ -5,6 +5,12 @@
 */
 
 /*
+    Javascript is maintained by ECMA (European Computer Manufacturers Association) and
+    new versions of Javascript are referred to as ECMAscript, or ES. The most recent
+    version of Javascript is ES6
+*/
+
+/*
     Strict mode was introduced in ES5 to clean up some of the sloppiness of JavaScript. You have to
     "opt-in" to using it, so let's talk about what it does:
     - There's some JavaScript errors that occur silently. This can be an issue, so strict mode makes 
@@ -50,6 +56,19 @@ let object = new MyClass(`Sample`);
 object.myMethod();
 console.log(JSON.stringify(object));
 
+// Let's talk more about scope:
+/*
+    There are 5 kinds of scope:
+    - Global scope: variables defined outside of functions, blocks or modules
+    - Local scope: refers to scopes that are not global
+    - Function scope: variables defined within a function
+    - Block scope: let and const defined wihtin {}
+    - Lexical scope: variables can be used in functions inside their scope
+
+    Variables declared with var can only have global or function scope.
+    Variables declared with let or const can have block, function or global scope.
+*/
+
 
 /*
     Note that using a module will cause JS to try and import the file. If you're opening the local HTML document with a web browser,
@@ -59,7 +78,6 @@ console.log(JSON.stringify(object));
 */
 
 /* 
-    We mentioned arrow functions before, let's talk more about them.
     There are some functional differences between normal functions and arrow functions, besides the syntax being slightly shorter   
 */
 /*
@@ -84,12 +102,12 @@ const obj = {
         log(this.myValue);
 
         function callback() { return this; }
-        // The function tries to set "this" to example, but it's not a function to it becomes undefined
-        log( callback );
+        // The function tries to set "this" to example, but it's not an object so it becomes undefined
+        log(callback);
 
         let arrow = () => this.myValue;
         // The arrow function just steals the "this" as it was defined by the "example" function
-        log( arrow );
+        log(arrow);
     },
 
     // The "arrowExample" function does not set "this" to anything, so it remains undefined (since we're in a module)
@@ -98,11 +116,11 @@ const obj = {
 
         function callback() { return this; }
         // The function tries to set "this" to arrowExample, but it can't so it remains undefined
-        log( callback );
+        log(callback);
 
         let arrow = () => this;
         // The arrow function steals the "this", but that's undefined so it remains undefined
-        log ( arrow );
+        log(arrow);
     }
 
 

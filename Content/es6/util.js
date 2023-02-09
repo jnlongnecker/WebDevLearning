@@ -90,9 +90,9 @@ log(operationPicker(5, 20).multiply());
 
 // ---------- EXAMPLE 2 ----------
 // Our anonymous function has closure over count. It also has closure over startingValue, even though it's not being used.
-let counter = function(startingValue) {
+let counter = function (startingValue) {
     let count = startingValue;
-    return function() {
+    return function () {
         count++;
         return count;
     }
