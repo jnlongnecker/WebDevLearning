@@ -12,6 +12,12 @@ catch { }
 
 // Setting up event listeners
 window.onload = () => {
+    /*
+        document.getElementById("section-organizer");
+        document.getElementByTagName("p");
+        document.getElementByClassName("button-holder");
+        document.querySelector("h2 + div");
+    */
     document.querySelector("#after").innerText = "Changed with JavaScript!";
 
     document.querySelector("#add-btn").addEventListener("click", addElement);
@@ -116,3 +122,19 @@ function collatz(num) {
     console.log(`It took ${iterations} steps to get to 1`);
 }
 
+// Run this to see the effects of JSON.parse() and JSON.stringify()
+function jsonFun() {
+    let myJson = {
+        name: "Jared",
+        age: "27",
+        guitarists: ["Mark Morton", "Yvette Young", "Tom Morello"]
+    }
+
+    let myJsonString = JSON.stringify(myJson);
+    console.log(`Converted into this string: ${myJsonString}`);
+
+    let jsonCopy = JSON.parse(myJsonString);
+
+    console.log("Converted back into an object:");
+    console.log(jsonCopy);
+}
